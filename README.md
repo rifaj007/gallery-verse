@@ -34,7 +34,7 @@ A modern image gallery web app built with **Next.js 15**, **Tailwind CSS**, **MU
 
 ## 📁 Folder Structure
 ```bash
-gallery-verse/
+src/
 ├── app/                      # Next.js app directory
 │   ├── api/uploadthing/     # UploadThing API handlers
 │   ├── favicon.ico
@@ -103,5 +103,5 @@ npm start
 ```
 
 ✨ Credits
-Built by [Md Rifaul Islam] with ❤️
+Built by Md Rifaul Islam with ❤️
 Image uploading powered by UploadThing
