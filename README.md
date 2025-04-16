@@ -33,6 +33,7 @@ A modern image gallery web app built with **Next.js 15**, **Tailwind CSS**, **MU
 - [UploadThing](https://uploadthing.com/) for image handling
 
 ## 📁 Folder Structure
+```bash
 gallery-verse/
 ├── app/                      # Next.js app directory
 │   ├── api/uploadthing/     # UploadThing API handlers
@@ -69,6 +70,7 @@ gallery-verse/
 │   └── ThemeRegistry.tsx
 │
 └── package.json
+```
 
 🧑‍💻 Getting Started
 1. Clone the repository
