@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📸 GalleryVerse
 
-## Getting Started
+A modern image gallery web app built with **Next.js 15**, **Tailwind CSS**, **MUI**, and **MongoDB**. Users can upload images with tags, preview them in a responsive grid with infinite scrolling, and search by title or tag. Built with scalability and performance in mind.
 
-First, run the development server:
+## 🚀 Features
+
+- **Image Upload Form**
+  - Add a title, assign tags (choose from existing or create new)
+  - Upload multiple images via dropzone
+  - Preview uploaded images before submission
+  - Form validation using **React Hook Form** + **Zod**
+
+- **Gallery View**
+  - Infinite scrolling to load images seamlessly
+  - Real-time search by title or tags
+  - Image modal for larger preview
+  - Delete functionality for removing images
+
+## 🛠️ Tech Stack
+
+### Frontend
+- [Next.js 15 (App Router)](https://nextjs.org/)
+- [React 19](https://react.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [MUI 7](https://mui.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [React Intersection Observer](https://www.npmjs.com/package/react-intersection-observer)
+
+### Backend
+- [MongoDB + Mongoose](https://mongoosejs.com/)
+- [UploadThing](https://uploadthing.com/) for image handling
+
+## 📁 Folder Structure
+gallery-verse/
+├── app/                      # Next.js app directory
+│   ├── api/uploadthing/     # UploadThing API handlers
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   └── page.tsx
+│
+├── components/              # UI Components
+│   ├── AddImageForm.tsx
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   ├── ImageContext.tsx
+│   ├── ImageGrid.tsx
+│   ├── SearchBar.tsx
+│   └── ThemeToggleButton.tsx
+│
+├── lib/                     # Utilities & Backend logic
+│   ├── actions/
+│   │   ├── image.action.ts
+│   │   └── tag.action.ts
+│   ├── database/
+│   │   ├── models/
+│   │   │   ├── image.model.ts
+│   │   │   └── tag.model.ts
+│   │   └── dbConnect.ts
+│   ├── uploadthing.ts
+│   ├── utils.ts
+│   └── validation.ts
+│
+├── theme/                   # MUI theme customization
+│   ├── theme.ts
+│   └── ThemeRegistry.tsx
+│
+└── package.json
+
+🧑‍💻 Getting Started
+1. Clone the repository
+ 
+```bash
+git clone https://github.com/your-username/gallery-verse.git
+cd gallery-verse
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Set up environment variables
+Create a .env.local file and configure the following:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+MONGODB_URI=your_mongodb_connection_string
+UPLOADTHING_TOKEN==your_uploadthing_token
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Run the development server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Build for production
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+✨ Credits
+Built by [Md Rifaul Islam] with ❤️
+Image uploading powered by UploadThing
