@@ -1,5 +1,5 @@
 "use client";
-// import { useState } from "react";
+import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -34,7 +34,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: "100%",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     [theme.breakpoints.up("sm")]: {
@@ -46,13 +45,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const SearchBar = () => {
-  // const [query, setQuery] = useState("");
+type Props = {
+  onSearch: (query: string) => void;
+};
 
-  /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const SearchBar = ({ onSearch }: Props) => {
+  const [query, setQuery] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
-  }; */
+    onSearch(value);
+  };
 
   return (
     <Search sx={{ mr: 3 }}>
@@ -62,6 +66,8 @@ const SearchBar = () => {
       <StyledInputBase
         placeholder="Search…"
         inputProps={{ "aria-label": "search" }}
+        value={query}
+        onChange={handleChange}
       />
     </Search>
   );

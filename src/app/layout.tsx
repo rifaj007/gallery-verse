@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import Header from "@/components/Header";
 import ThemeRegistry from "@/theme/ThemeRegistry";
-import Footer from "@/components/Footer";
 import "@uploadthing/react/styles.css";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
+import { ImageProvider } from "@/components/ImageContext";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -29,14 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.variable}>
       <body className="flex flex-col min-h-screen">
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeRegistry>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <Toaster />
-          </ThemeRegistry>
-        </AppRouterCacheProvider>
+        <ImageProvider>
+          <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+            <ThemeRegistry>
+              {children}
+              <Toaster />
+            </ThemeRegistry>
+          </AppRouterCacheProvider>
+        </ImageProvider>
       </body>
     </html>
   );

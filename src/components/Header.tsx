@@ -12,7 +12,11 @@ import SearchBar from "./SearchBar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
-export default function Header() {
+interface HeaderProps {
+  setSearchQuery: (query: string) => void;
+}
+
+export default function Header({ setSearchQuery }: HeaderProps) {
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   const handleMobileSearchOpen = () => {
@@ -44,7 +48,7 @@ export default function Header() {
               <Box
                 sx={{ display: { xs: "none", sm: "inline-flex items-center" } }}
               >
-                <SearchBar />
+                <SearchBar onSearch={setSearchQuery} />
               </Box>
 
               <IconButton
@@ -79,7 +83,7 @@ export default function Header() {
             display: { xs: "flex", sm: "none" },
           }}
         >
-          <SearchBar />
+          <SearchBar onSearch={setSearchQuery} />
         </Box>
       )}
     </div>

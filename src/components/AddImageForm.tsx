@@ -31,6 +31,7 @@ import { ITag } from "@/lib/database/models/tag.model";
 import { createTag, getAllTags } from "@/lib/actions/tag.action";
 import { createImage } from "@/lib/actions/image.action";
 import toast from "react-hot-toast";
+import { useImageContext } from "./ImageContext";
 
 /* Custom Input components styled with MUI */
 const CustomInput = styled(OutlinedInput)(({ theme }) => ({
@@ -59,6 +60,7 @@ const CustomSelect = styled(Select)(({ theme }) => ({
 }));
 
 const AddImageForm = () => {
+  const { triggerRefresh } = useImageContext();
   const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
 
@@ -108,7 +110,6 @@ const AddImageForm = () => {
   const onSubmit = async (
     values: z.infer<typeof uploadImageFormValidationSchema>
   ) => {
-    console.log(values);
     try {
       await createImage({
         title: values.title,
@@ -117,6 +118,7 @@ const AddImageForm = () => {
       });
 
       reset();
+      triggerRefresh();
       toast.success("Image created successfully");
     } catch (error) {
       console.error(error);
