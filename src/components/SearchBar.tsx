@@ -2,7 +2,7 @@
 // import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
-import InputBase from '@mui/material/InputBase';
+import InputBase from "@mui/material/InputBase";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -49,13 +49,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const SearchBar = () => {
   // const [query, setQuery] = useState("");
 
-/*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
   }; */
 
   return (
-    <Search>
+    <Search sx={{ mr: 3 }}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>

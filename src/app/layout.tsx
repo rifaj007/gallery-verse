@@ -5,6 +5,8 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import Header from "@/components/Header";
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import Footer from "@/components/Footer";
+import "@uploadthing/react/styles.css";
+import { Toaster } from 'react-hot-toast';
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -32,6 +34,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <Toaster />
           </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>

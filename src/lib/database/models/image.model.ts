@@ -1,14 +1,24 @@
-// models/Image.ts
-import mongoose, { Schema, models } from "mongoose";
+import { Model, model, models, Schema } from "mongoose";
 
-const ImageSchema = new Schema(
+export interface IImage {
+  _id: string;
+  title: string;
+  tags: Array<string>;
+  img_url: Array<string>;
+}
+
+const imageSchema = new Schema<IImage>(
   {
-    url: { type: String, required: true },
-    title: { type: String },
-    tag: { type: String },
+    title: { type: String, required: true },
+    tags: { type: [String], required: true },
+    img_url: { type: [String], required: true },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-const Image = models.Image || mongoose.model("Image", ImageSchema);
+const Image: Model<IImage> =
+  models?.Image || model<IImage>("Image", imageSchema);
+
 export default Image;

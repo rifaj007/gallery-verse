@@ -14,8 +14,6 @@ if (!cached) {
 async function connectToDatabase() {
   const MONGODB_URI = process.env.MONGODB_URI as string;
 
-  console.log(MONGODB_URI)
-
   if (!MONGODB_URI) {
     throw new Error(
       "Please define the MONGODB_URI environment variable inside .env.local"
@@ -29,7 +27,7 @@ async function connectToDatabase() {
 
   if (!cached.promise) {
     const opts = {
-      dbName: "exclusive",
+      dbName: "gallery-verse",
       bufferCommands: false,
     };
 
